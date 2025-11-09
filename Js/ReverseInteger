@@ -1,0 +1,23 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    let copyOfX=x;
+    x=Math.abs(x)
+
+    let reverse=0;
+
+    while(x>0){
+        lastNumber=x%10;
+        reverse=(10*reverse)+lastNumber;
+        x=Math.floor(x/10);
+    }
+
+    let limitation=2**31;
+    if(reverse < -limitation || reverse>limitation) return 0;
+
+    return (copyOfX)<0?-reverse:reverse
+
+
+};
