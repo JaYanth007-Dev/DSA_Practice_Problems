@@ -35,3 +35,27 @@ function getvalue(prices) {
 };
 
 console.log(getvalue([2,4,1]))
+
+
+
+
+         OR
+		 
+		 
+function getvalue(prices) {
+
+    let max=0;
+    let min=Infinity;
+    for (let p = 0; p < prices.length; p++) {
+                if(prices[p]<min){
+                    min=prices[p];
+                }
+                if(prices[p]-min>max){
+                    max=prices[p]-min
+                }
+        }
+    return max;
+
+};
+
+console.log(getvalue([7,6,4,3,1]))
