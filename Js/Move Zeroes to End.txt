@@ -31,3 +31,30 @@ var moveZeroes = function(nums) {
         insertPos++;
     }
 };
+
+
+
+
+OR
+
+
+function getvalue(prices) {
+    if(prices.length<=1) return prices
+     let i = 0;
+    let counter=0;
+
+    while (counter<=prices.length) {
+        if (prices[i] === 0) {
+            prices.splice(i, 1);
+            prices.push(0);
+           counter++
+        } else {
+            counter++
+            i++; 
+        }
+    }
+
+    return prices;
+};
+
+console.log(getvalue([0,2,4,5,0,9,3]))
