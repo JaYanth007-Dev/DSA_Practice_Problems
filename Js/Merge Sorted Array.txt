@@ -27,4 +27,30 @@ Output: [1]
 Explanation: The arrays we are merging are [] and [1].
 The result of the merge is [1].
 Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+
+
+
+Solutions:
+
+var merge = function(n1, m, n2, n) {
+       let p1=m;
+    let p2=n;
+
+    for (let i = 0; i < m+n; i++) {
+            if(n1[p1-1]>n2[p2-1] && p1>=1){
+                n1[n1.length-1-i]=n1[p1-1]
+                n1[p1-1]=n2[p2-1]
+                p1--
+            }else if(p2>=1){
+                n1[n1.length-1-i]=n2[p2-1]
+                p2--;
+            }
+    }
+	
+	
+};
+
+
+
+
    
