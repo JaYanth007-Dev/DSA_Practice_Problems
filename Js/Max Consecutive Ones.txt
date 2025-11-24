@@ -22,4 +22,26 @@ nums[i] is either 0 or 1.
 
 
 
+Solution
+
+var findMaxConsecutiveOnes = function(n) {
+     let p=0;
+    let arr=[]
+    for (let i = 0; i < n.length; i++) {
+            if(n[i]==1){
+                p++;
+            }
+            else{
+                arr.push(p);
+                p=0
+            }
+            if(i+1==n.length)
+                arr.push(p)
+    }
+       let max=Math.max(...arr)
+    return max;
+};
+
+
+
 
