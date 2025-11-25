@@ -33,3 +33,23 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -3 * 104 <= nums[i] <= 3 * 104
 Each element in the array appears twice except for one element which appears only once.
+
+
+
+Solution
+
+function get(nums) {
+    	let freq = new Map();
+
+nums.forEach(num => {
+  freq.set(num, (freq.get(num) || 0) + 1);
+});
+
+let uniqueDigit= [...freq.entries()]
+  .filter(([key, value]) => value === 1)
+  .map(([key]) => key);
+
+
+  return uniqueDigit[0];
+};
+console.log(get([2,1,2,3,3]))
