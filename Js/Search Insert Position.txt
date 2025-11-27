@@ -39,6 +39,27 @@ var searchInsert = function(nums, target) {
 };
 
 
+//OR
+
+
+var searchInsert = function(nums, target) {
+{
+        if(target<0) return 0
+    if(nums.indexOf(target)!==-1){
+        return nums.indexOf(target)
+    }
+    let value=0;
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]<target){
+            value=nums[i]
+        }
+        if(nums[i]>target){
+            break;
+        }
+    }
+         return (nums.indexOf(value)<0)?0:nums.indexOf(value)+1
+};
+
 
 
 
