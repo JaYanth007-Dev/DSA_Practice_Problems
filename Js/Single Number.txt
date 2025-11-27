@@ -53,3 +53,14 @@ let uniqueDigit= [...freq.entries()]
   return uniqueDigit[0];
 };
 console.log(get([2,1,2,3,3]))
+
+
+
+//OR
+
+
+Using XOR 
+-----------------------
+a XOR a = 0
+a XOR 0 = a
+
