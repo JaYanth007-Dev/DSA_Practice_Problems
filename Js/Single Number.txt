@@ -64,3 +64,12 @@ Using XOR
 a XOR a = 0
 a XOR 0 = a
 
+
+function get(nums) {
+   let xor=0
+ for(let i=0;i<nums.length;i++){
+     xor = xor ^ nums[i]        // we are XOR ing it based on above conditions it will remove all duplicated in the array and it will give the remaining element
+  };
+  return xor;
+  };
+console.log(get([2,1,2,3,3]));
