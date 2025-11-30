@@ -41,3 +41,16 @@ var missingInteger = function(nums) {
   while (present.has(x)) x++;
   return x;
 };
+
+
+
+
+  let sum = nums[0];
+  for (let i = 1; i < nums.length && nums[i] == nums[i - 1] + 1; i++)
+    sum += nums[i];
+
+  let seen = Array(51).fill(false);
+  nums.forEach(x => seen[x] = true);
+
+  while (seen[sum]) sum++;
+  return sum;
