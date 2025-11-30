@@ -24,3 +24,20 @@ Constraints:
 
 1 <= nums.length <= 50
 1 <= nums[i] <= 50
+
+
+Solution:
+var missingInteger = function(nums) {
+      let sum = nums[0];
+  let i = 1;
+  while (i < nums.length && nums[i] === nums[i - 1] + 1) {
+    sum += nums[i];
+    i++;
+  }
+
+  const present = new Set(nums);
+
+  let x = sum;
+  while (present.has(x)) x++;
+  return x;
+};
