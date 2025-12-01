@@ -26,3 +26,14 @@ Constraints:
 
 1 <= haystack.length, needle.length <= 104
 haystack and needle consist of only lowercase English characters.
+
+
+
+Solutions:
+
+
+    function strStr(haystack, needle) {
+    return haystack.indexOf(needle);
+}
+
+
