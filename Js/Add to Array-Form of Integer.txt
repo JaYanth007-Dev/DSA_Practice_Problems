@@ -33,7 +33,7 @@ num does not contain any leading zeros except for the zero itself.
 
 
 Solutions
-
+var addToArrayForm = function(num, k) {
   let i = num.length - 1;
     let result = [];
 
@@ -48,3 +48,4 @@ Solutions
     }
 
     return result.reverse(); 
+}
