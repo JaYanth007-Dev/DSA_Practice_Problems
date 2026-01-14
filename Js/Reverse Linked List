@@ -30,4 +30,47 @@ Follow up: A linked list can be reversed either iteratively or recursively. Coul
 
 
 
+Solution:
+
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+   let prev=null;
+   let curr=head;
+
+   while(curr){
+         let after=curr.next;
+         curr.next=prev;
+         prev=curr;
+         curr=after;
+   }
+   return prev
+};
+
+
+OR
+
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+   let prev=null;
+   let curr=head;
+
+   while(curr){
+         let after=curr.next;
+         curr.next=prev;
+         prev=curr;
+         curr=after;
+   }
+   head=prev;
+   return head
+
+
+};
 
