@@ -24,3 +24,86 @@ The number of nodes in the list is sz.
  
 
 Follow up: Could you do this in one pass?
+
+
+Solution:
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    let sentinal=new ListNode();
+    sentinal.next=head;
+    let prev=sentinal;
+    let len=head;
+
+    let size=0;
+    while(len){
+        size++;
+        len=len.next
+    }
+    let prevpos=(size-n)
+
+    for(let i=0;i<prevpos;i++){
+        prev=prev.next
+
+     }
+    prev.next=prev.next.next
+
+    return sentinal.next;
+};
+
+
+
+OR 
+
+
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    let sentinal=new ListNode();
+    sentinal.next=head;
+    let prev=sentinal;
+    let len=head;
+
+    let size=0;
+    while(len){
+        size++;
+        len=len.next
+    }
+
+    let dltpos=0
+    let prevpos=(size-n)
+
+    while(prev && prev.next){
+        if(dltpos==prevpos){
+             prev.next=prev.next.next
+             break;
+        }
+        dltpos++;
+        prev=prev.next
+    }
+
+    return sentinal.next;
+
+};
