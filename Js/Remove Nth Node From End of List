@@ -107,3 +107,29 @@ var removeNthFromEnd = function(head, n) {
     return sentinal.next;
 
 };
+
+
+
+**One Pass approach" using Two pointers
+
+-keep slow pointer at sentinal node ,and fast pointer with 'n' distance between them 
+-When fast pointer reached the end ,the slow pointer is at the prev node of nth delete node ,so remove the link and attach prev node to next to next node
+
+var removeNthFromEnd = function(head, n) {
+    let sentinal=new ListNode();
+    sentinal.next=head;
+    let slow=sentinal;
+    let fast=head;
+    for(let i=1;i<=n;i++){
+        fast=fast.next
+    }
+  
+    while(fast){
+       slow=slow.next
+       fast=fast.next 
+    }
+
+    slow.next=slow.next.next
+
+    return sentinal.next
+};
