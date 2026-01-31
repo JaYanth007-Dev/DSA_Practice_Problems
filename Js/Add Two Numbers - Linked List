@@ -25,7 +25,7 @@ It is guaranteed that the list represents a number that does not have leading ze
 
 
 
-Solution : 
+Solutions: 
 
 
 
@@ -75,4 +75,31 @@ var addTwoNumbers = function(l1, l2) {
     return node;
 };
 
+
+OR - optimised one
+
+
+
+var addTwoNumbers = function(l1, l2) {
+    let sentinal=new ListNode();
+    let final=sentinal;
+    let carry=0;
+
+    while(l1||l2||carry>0){
+        let sum=(l1?l1.val:0) + (l2?l2.val:0) +carry;
+        carry=Math.floor(sum/10);
+        let rem=sum%10;
+
+        let newNode=new ListNode(rem);
+        sentinal.next=newNode
+        sentinal=sentinal.next
+
+        l1=l1 && l1.next
+        l2=l2 && l2.next
+
+    }
+
+    return final.next
+
+};
  
