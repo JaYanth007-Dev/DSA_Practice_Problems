@@ -22,3 +22,57 @@ Constraints:
 The number of nodes in each linked list is in the range [1, 100].
 0 <= Node.val <= 9
 It is guaranteed that the list represents a number that does not have leading zeros.
+
+
+
+Solution : 
+
+
+
+var addTwoNumbers = function(l1, l2) {
+
+    let prev1 = null, prev2 = null;
+    let curr1 = l1, curr2 = l2;
+
+    while (curr1) {
+        let temp = curr1.next;
+        curr1.next = prev1;
+        prev1 = curr1;
+        curr1 = temp;
+    }
+
+
+    while (curr2) {
+        let temp = curr2.next;
+        curr2.next = prev2;
+        prev2 = curr2;
+        curr2 = temp;
+    }
+
+    curr1 = prev1;
+    curr2 = prev2;
+
+    let sum1 = 0, sum2 = 0;
+
+    while (curr1) {
+        sum1 = sum1 * 10 + curr1.val;
+        curr1 = curr1.next;
+    }
+
+    while (curr2) {
+        sum2 = sum2 * 10 + curr2.val;
+        curr2 = curr2.next;
+    }
+
+    let totalSum = sum1 + sum2;
+
+    let node = null;
+
+    for (let digit of totalSum.toString()) {
+        node = new ListNode(Number(digit), node);
+    }
+
+    return node;
+};
+
+ 
