@@ -38,3 +38,76 @@ Constraints:
 
 The number of nodes in the list is in the range [0, 100].
 0 <= Node.val <= 100
+
+
+
+
+Solutions:
+-Iterative Approach
+
+var swapPairs = function(head) {
+    
+    if(!head || !head.next) return head
+
+    let p1=head;
+    let p2=head.next;
+    let sentinal=new ListNode();
+    let final=sentinal;
+    let curr=sentinal;
+
+    while(p1 && p2){
+
+        if(p2.next){
+            curr.next=p2
+            let temp=p2.next;
+            p1.next=temp
+            p2.next=p1;
+            curr=p1
+            p1=p1.next
+            p2=temp.next
+        }
+        else{
+            curr.next=p2;
+            p1.next=null;
+            p2.next=p1
+            break;
+        }
+
+    }
+
+    return final.next
+
+
+};
+
+
+
+
+OR  
+-Recursive Approach 
+
+var swapPairs = function(head) {
+
+
+    if(!head || !head.next ) return head;
+    let left=head;
+    let right=head.next
+
+
+    left.next=swapPairs(right.next);
+    right.next=head;
+     return right;
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
