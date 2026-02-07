@@ -19,3 +19,20 @@ Constraints:
 1 <= jewels.length, stones.length <= 50
 jewels and stones consist of only English letters.
 All the characters of jewels are unique.
+
+
+
+Solutions:
+
+var numJewelsInStones = function(jewels, stones) {
+        let count=0;
+        for(let i of stones){
+            for(let j=0;j<jewels.length;j++){
+                if(jewels[j]==i){
+                    count++;
+                }
+            }
+        
+        }
+        return count
+};
