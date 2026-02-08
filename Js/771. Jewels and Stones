@@ -44,6 +44,9 @@ var numJewelsInStones = function(jewels, stones) {
 
 OR
 -Using "Set" for finding and searching operations it will be O(1) to check the element
+-Even though we are using extra space (set) the space complexity will not be O(n) it will be O(1) because 
+  *In the ques it was mentioned like it will be of English letters so ,even though the length of jewels is 100000 but the alphabets are 26 so A_Z(26) ,a-z(26)
+   the length of the set will be O(52)is constant - O(1) 
 
 var numJewelsInStones = function(jewels, stones) {
         let count=0;
