@@ -30,3 +30,32 @@ Constraints:
 2 <= s.length <= 1000
 s[i] is either 'L' or 'R'.
 s is a balanced string.
+
+
+
+
+Solution:
+var balancedStringSplit = function(s) {
+    let right=0;
+    let left=0;
+    let count=0;
+    for(let i=0;i<s.length;i++){
+        if(s[i]=="R"){
+            ++right;
+        }else{
+            ++left;
+        }
+
+        if(left===right){
+            ++count;
+            left=right=0;
+        }
+    }
+
+    return count;
+};
+
+
+
+
+
