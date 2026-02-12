@@ -23,3 +23,16 @@ Constraints:
 
 1 <= num.length <= 105
 num only consists of digits and does not contain any leading zeros.
+
+
+
+Solution:
+
+var largestOddNumber = function(num) {
+     for (let i = num.length - 1; i >= 0; i--) {
+        if (parseInt(num[i]) % 2 !== 0) {
+            return num.substring(0, i + 1);
+        }
+    }
+    return "";
+};
