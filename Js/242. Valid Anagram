@@ -23,3 +23,26 @@ s and t consist of lowercase English letters.
  
 
 Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+
+
+
+Solution:
+
+var isAnagram = function(s, t) {
+    let map=new Map();
+
+    for(let i of s){
+         map.set(i, (map.get(i) || 0) + 1);
+    }
+
+    for(let i of t){
+        if (!map.has(i)) return false;
+          map.set(i, map.get(i) - 1);
+            if (map.get(i) === 0) {
+             map.delete(i);
+        }
+    }
+
+
+    return map.size==0;
+};
