@@ -41,3 +41,27 @@ Constraints:
 1 <= s.length <= 5 * 104
 t.length == s.length
 s and t consist of any valid ascii character.
+
+
+Solution:
+
+var isIsomorphic = function(s, t) {
+    let map=new Map();
+
+    for(let i=0;i<s.length;i++){
+        if (map.has(s[i])) {
+                if (map.get(s[i]) !== t[i]) {
+                    return false;
+        }
+        } 
+        else if(![...map.values()].includes(t[i])){
+            map.set(s[i], t[i]);
+        }
+        else {
+            return false
+        }
+    }
+
+    return true
+
+};
