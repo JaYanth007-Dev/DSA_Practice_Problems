@@ -32,3 +32,24 @@ Constraints:
 1 <= strs.length <= 104
 0 <= strs[i].length <= 100
 strs[i] consists of lowercase English letters.
+
+
+
+Solution:
+
+var groupAnagrams = function(strs) {
+     let map = new Map();
+
+    for (let str of strs) {
+       
+        let key = str.split('').sort().join('');
+
+        if (!map.has(key)) {
+            map.set(key, []);
+        }
+
+        map.get(key).push(str);
+    }
+
+    return [...map.values()];
+};
