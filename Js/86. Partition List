@@ -20,3 +20,26 @@ Constraints:
 The number of nodes in the list is in the range [0, 200].
 -100 <= Node.val <= 100
 -200 <= x <= 200
+
+
+
+Solution:
+
+var partition = function(head, x) {
+     let small = new ListNode(0), large = new ListNode(0);
+    let s = small, l = large;
+
+    while (head) {
+        if (head.val < x) {
+            s = s.next = head;
+        } else {
+            l = l.next = head;
+        }
+        head = head.next;
+    }
+
+    l.next = null;         
+    s.next = large.next;    
+
+    return small.next;
+};
