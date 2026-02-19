@@ -43,3 +43,39 @@ var partition = function(head, x) {
 
     return small.next;
 };
+
+
+
+OR
+
+ if (!head) return head;
+
+    let dummy = new ListNode(0);
+    dummy.next = head;
+
+    let small = dummy;  
+    let prev = dummy;
+    let curr = head;
+
+    while (curr) {
+        if (curr.val < x) {
+            if (small.next === curr) {
+                small = curr;
+                prev = curr;
+                curr = curr.next;
+            } else {
+                prev.next = curr.next;
+
+                curr.next = small.next;
+                small.next = curr;
+
+                small = curr;
+                curr = prev.next;
+            }
+        } else {
+            prev = curr;
+            curr = curr.next;
+        }
+    }
+
+    return dummy.next;
