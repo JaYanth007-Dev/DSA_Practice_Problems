@@ -75,3 +75,30 @@ var isValid = function(s) {
     return stack.length === 0;
 
 };
+
+
+OR
+
+var isValid = function(s) {
+     let stack = [];
+     let len=s.length;
+    let map={
+        "{":"}",
+        "(":")",
+        "[":"]"
+    }
+
+    for(let i=0;i<len;i++){
+        if(map[s[i]]){
+            stack.push(s[i]);
+        }else{
+            let val=stack.pop();
+            if(!val || s[i]!=map[val]){
+                return false;
+            }
+        }
+
+    }
+
+    return stack.length ===0;
+};
