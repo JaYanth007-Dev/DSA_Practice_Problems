@@ -67,5 +67,27 @@ var removeOuterParentheses = function(s) {
 
 OR
 
+--Without using Stack
+
+var removeOuterParentheses = function(s) {
+    let level=0
+    let final="";
+
+    for(let i=0;i<s.length;i++){
+        if(s[i]=="("){
+           ++level;
+             final+=(level>1)?s[i]:"";
+        }
+        else{
+            final+=(level>1)?s[i]:"";
+            --level;
+
+        }
+
+
+    }
+
+    return final;
+};
 
 
