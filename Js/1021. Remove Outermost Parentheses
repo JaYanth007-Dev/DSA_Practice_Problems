@@ -37,3 +37,35 @@ Constraints:
 1 <= s.length <= 105
 s[i] is either '(' or ')'.
 s is a valid parentheses string.
+
+
+
+Solutions:
+
+var removeOuterParentheses = function(s) {
+    let stack=[];
+    let final="";
+
+    for(let i=0;i<s.length;i++){
+        if(s[i]=="("){
+            stack.push(s[i]);
+             final+=(stack.length>1)?s[i]:"";
+        }
+        else{
+            final+=(stack.length>1)?s[i]:"";
+            stack.pop();
+
+        }
+
+
+    }
+
+    return final;
+};
+
+
+
+OR
+
+
+
