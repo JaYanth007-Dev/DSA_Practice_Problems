@@ -38,3 +38,23 @@ Constraints:
 1 <= s.length <= 100
 s consists only of lowercase English letters and digits.
 The input is generated such that it is possible to delete all digits.
+
+
+
+Solution
+
+var clearDigits = function(s) {
+      s = s.split("");  
+    let k = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] >= '0' && s[i] <= '9') {
+            k--;              
+        } else {
+            s[k] = s[i];   
+            k++;
+        }
+    }
+
+    return s.slice(0, k).join("");
+};
