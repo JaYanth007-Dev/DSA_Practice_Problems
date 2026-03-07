@@ -39,3 +39,30 @@ Constraints:
 
 1 <= tokens.length <= 104
 tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
+
+
+
+
+Solution:
+
+var evalRPN = function(tokens) {
+    if(tokens.length==1) return parseInt(tokens[0]);
+    let stack=[];
+
+    for (let [index, i] of tokens.entries()){
+        if(i === "+" || i === "-" || i === "*" || i === "/"){
+            let ele2=stack.pop();
+            let ele1=stack.pop();
+            let res=Math.trunc(eval(`(${ele1})${i}(${ele2})`));
+            if(stack.length==0 && index==tokens.length-1){
+                return res
+            }
+            stack.push(res);
+        }
+        else{
+            stack.push(i)
+        }
+    }
+};
+
+
