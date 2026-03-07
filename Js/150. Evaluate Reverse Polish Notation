@@ -66,3 +66,29 @@ var evalRPN = function(tokens) {
 };
 
 
+
+OR
+
+
+
+var evalRPN = function(T) { 
+    let S = []; 
+
+    for (let i = 0; i < T.length; i++) {
+        let X = T[i];
+        if (X === "+" || X === "-" || X === "*" || X === "/") {
+            let B = S.pop();
+            let A = S.pop(); 
+            let R;
+            if (X === "+") R = A + B;
+            else if (X === "-") R = A - B;
+            else if (X === "*") R = A * B;
+            else R = Math.trunc(A / B);
+            S.push(R);
+        } else {
+            S.push(parseInt(X)); 
+        }
+    }
+
+    return S[0]; 
+};
