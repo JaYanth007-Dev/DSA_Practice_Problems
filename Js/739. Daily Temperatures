@@ -19,3 +19,35 @@ Constraints:
 
 1 <= temperatures.length <= 105
 30 <= temperatures[i] <= 100
+
+
+
+Solution:
+
+var dailyTemperatures = function(arr) {
+    let stack=[];
+    let n=arr.length;
+    let finalArray=Array(n).fill(0);
+
+    stack.push(n-1);
+
+
+    for(let i=n-2;i>=0;i--){
+        while(stack.length){
+            let top=stack[stack.length-1];
+            if(arr[i]>=arr[top]){
+                stack.pop()
+            }
+            else{
+                finalArray[i]=top-i;
+                break;
+            }
+        }
+        if(!stack.length){
+            finalArray[i]=0;
+        }
+        stack.push(i);
+    }
+
+    return finalArray
+};
