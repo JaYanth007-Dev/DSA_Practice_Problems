@@ -51,3 +51,28 @@ var dailyTemperatures = function(arr) {
 
     return finalArray
 };
+
+
+
+OR 
+Clean Code (same approach)
+
+var dailyTemperatures = function(arr) {
+    let n = arr.length;
+    let stack = [];
+    let res = new Array(n).fill(0);
+
+    for (let i = n - 1; i >= 0; i--) {
+        while (stack.length && arr[i] >= arr[stack[stack.length - 1]]) {
+            stack.pop();
+        }
+
+        if (stack.length) {
+            res[i] = stack[stack.length - 1] - i;
+        }
+
+        stack.push(i);
+    }
+
+    return res;
+};
