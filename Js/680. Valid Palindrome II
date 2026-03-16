@@ -20,3 +20,30 @@ Constraints:
 
 1 <= s.length <= 105
 s consists of lowercase English letters.
+
+
+
+Solution:
+
+var validPalindrome = function(s) {
+  let l = 0, r = s.length - 1;
+
+    while (l < r) {
+        if (s[l] !== s[r]) {
+            return verify(l + 1, r) || verify(l, r - 1);
+        }
+        l++;
+        r--;
+    }
+    return true;
+
+    function verify(i, j) {
+        while (i < j) {
+            if (s[i] !== s[j]) return false;
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+};
