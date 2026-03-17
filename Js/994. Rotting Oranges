@@ -30,3 +30,60 @@ m == grid.length
 n == grid[i].length
 1 <= m, n <= 10
 grid[i][j] is 0, 1, or 2.
+
+
+
+Solution:
+var orangesRotting = function(grid) {
+    let queue = [];
+    let fresh = 0;
+    let minutes = 0;
+
+    let rows = grid.length;
+    let cols = grid[0].length;
+
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            if (grid[i][j] === 2) {
+                queue.push([i, j]);
+            } else if (grid[i][j] === 1) {
+                fresh++;
+            }
+        }
+    }
+
+BFS
+    while (queue.length > 0 && fresh > 0) {
+        let size = queue.length;
+
+        for (let i = 0; i < size; i++) {
+            let [x, y] = queue.shift();
+
+            // check 4 directions
+            if (x + 1 < rows && grid[x + 1][y] === 1) {
+                grid[x + 1][y] = 2;
+                fresh--;
+                queue.push([x + 1, y]);
+            }
+            if (x - 1 >= 0 && grid[x - 1][y] === 1) {
+                grid[x - 1][y] = 2;
+                fresh--;
+                queue.push([x - 1, y]);
+            }
+            if (y + 1 < cols && grid[x][y + 1] === 1) {
+                grid[x][y + 1] = 2;
+                fresh--;
+                queue.push([x, y + 1]);
+            }
+            if (y - 1 >= 0 && grid[x][y - 1] === 1) {
+                grid[x][y - 1] = 2;
+                fresh--;
+                queue.push([x, y - 1]);
+            }
+        }
+
+        minutes++;
+    }
+
+    return fresh === 0 ? minutes : -1;
+};
