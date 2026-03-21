@@ -67,4 +67,5 @@ var mySqrt = function(x) {
 };
 
 OR
+This is the optimised version
 Add  let m=l+ Math.floor((r-l)/2);
