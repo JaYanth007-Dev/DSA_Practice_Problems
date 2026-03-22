@@ -34,7 +34,7 @@ Constraints:
 
 
 
-`Solutions:
+`Solutions:(Using Binary Search - O(logn)
 
 /**
  * @param {number} n
@@ -56,4 +56,19 @@ var guessNumber = function(n) {
           l=m+1
        }
   }
+};
+
+
+OR (simply)
+
+var guessNumber = function(n) { 
+  let l = 1, r = n;
+
+    while (l <= r) {
+        let m = Math.floor((l + r) / 2);
+        
+        if (guess(m) === 0) return m;
+        if (guess(m) < 0) r = m - 1;
+        else l = m + 1;
+    }
 };
