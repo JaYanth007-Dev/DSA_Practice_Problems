@@ -25,9 +25,35 @@ Example 3:
 
 Input: n = 2, pick = 1
 Output: 1
- 
 
 Constraints:
 
 1 <= n <= 231 - 1
 1 <= pick <= n
+
+
+
+
+`Solutions:
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var guessNumber = function(n) { 
+     let l=1;
+     let r=n;
+     while(l<=r){
+       let m=l+ Math.floor((r-l)/2);
+       let result=guess(m)
+       if(result===0){
+          return m;
+       }
+       else if(result<0){
+           r=m-1;
+       }
+       else{
+          l=m+1
+       }
+  }
+};
