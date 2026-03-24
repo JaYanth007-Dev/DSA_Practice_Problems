@@ -35,6 +35,7 @@ Constraints:
 
 
 `Solutions:(Using Binary Search - O(logn)
+-It took 57ms
 
 /**
  * @param {number} n
@@ -60,6 +61,7 @@ var guessNumber = function(n) {
 
 
 OR (simply)
+-It took 39ms
 
 var guessNumber = function(n) { 
   let l = 1, r = n;
