@@ -25,3 +25,20 @@ Constraints:
 1 <= nums.length <= 1000
 -231 <= nums[i] <= 231 - 1
 nums[i] != nums[i + 1] for all valid i.
+
+
+
+
+
+
+Solution:
+
+var findPeakElement = function(nums) {
+    let max=Math.max(...nums)
+    let index=nums.indexOf(max);
+    return index
+};
+
+
+
+OR
