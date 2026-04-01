@@ -42,3 +42,22 @@ var findPeakElement = function(nums) {
 
 
 OR
+
+
+var findPeakElement = function(nums) {
+    let lefft = 0, right = nums.length - 1;
+
+    while (lefft < right) {
+        let m = Math.floor((lefft + right) / 2);
+
+        if (nums[m] < nums[m + 1]) {
+            lefft = m + 1;
+        } else {
+            right = m;     
+        }
+    }
+
+    return lefft; 
+};
+
+
