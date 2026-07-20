@@ -50,3 +50,8 @@ function strStr(haystack, needle) {
     return -1;
 }
 
+
+
+//OR Using KMP (Knuth-Morris-Pratt) algorithm 
+
+
