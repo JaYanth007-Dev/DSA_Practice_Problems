@@ -54,4 +54,39 @@ function strStr(haystack, needle) {
 
 //OR Using KMP (Knuth-Morris-Pratt) algorithm 
 
+var strStr = function(haystack, needle) {
+if (needle.length === 0) return 0;
+
+    const lps = new Array(needle.length).fill(0);
+    let len = 0;
+
+    for (let i = 1; i < needle.length;) {
+        if (needle[i] === needle[len]) {
+            lps[i++] = ++len;
+        } else if (len !== 0) {
+            len = lps[len - 1];
+        } else {
+            lps[i++] = 0;
+        }
+    }
+    let i = 0, j = 0;
+
+    while (i < haystack.length) {
+        if (haystack[i] === needle[j]) {
+            i++;
+            j++;
+
+            if (j === needle.length) {
+                return i - j;
+            }
+        } else if (j !== 0) {
+            j = lps[j - 1];
+        } else {
+            i++;
+        }
+    }
+
+    return -1;
+
+};
 
